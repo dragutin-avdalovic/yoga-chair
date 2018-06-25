@@ -1,15 +1,15 @@
 <template>
   <el-collapse v-model="activeNames" @change="handleChange">
-    <el-collapse-item title="Consistency" name="1">
-      <ul>
-        <li class="krug" style="background-color:#0D0D0D;"></li>
-        <li class="krug" style="background-color:#00334D;"></li>
-        <li class="krug" style="background-color:#FFFFFF;"></li>
-        <li class="krug" style="background-color:#B7B7B7;"></li>
-        <li class="krug" style="background-color:#717184;"></li>
-        <li class="krug" style="background-color:#BCB5AF;"></li>
-        <li class="krug" style="background-color:#0068B4;"></li>
-      </ul>
+    <el-collapse-item title="Base finish" name="1">
+      <div class="circle-container">
+        <div class="circle" style="background-color:#0D0D0D;"></div>
+        <div class="circle" style="background-color:#00334D;"></div>
+        <div class="circle" style="background-color:#FFFFFF;"></div>
+        <div class="circle" style="background-color:#B7B7B7;"></div>
+        <div class="circle" style="background-color:#717184;"></div>
+        <div class="circle" style="background-color:#BCB5AF;"></div>
+        <div class="circle" style="background-color:#0068B4;"></div>
+      </div>
     </el-collapse-item>
     <el-collapse-item title="Feedback" name="2">
       <div>Operation feedback: enable the users to clearly perceive their operations by style updates and interactive effects;</div>
@@ -41,3 +41,19 @@ export default {
   }
 }
 </script>
+
+<style>
+  .circle-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .circle {
+    width: 2.5em;
+    height: 2.5em;
+    margin: 1em 1em;
+    border-radius: 50%;
+    border: 1px solid grey;
+  }
+</style>
