@@ -9,6 +9,11 @@
         <div class="circle" style="background-color:#717184;"></div>
         <div class="circle" style="background-color:#BCB5AF;"></div>
         <div class="circle" style="background-color:#0068B4;"></div>
+        <div class="circle" style="background-color:#6D6456;"></div>
+        <div class="circle" style="background-color:#D0D1B0;"></div>
+        <div class="circle" style="background-color:#414042;"></div>
+        <div class="circle" style="background-color:#7A7A7A;"></div>
+        <div class="circle" style="background-color:#CEDBBC;"></div>
       </div>
     </el-collapse-item>
     <el-collapse-item title="Feedback" name="2">
@@ -47,8 +52,11 @@ export default {
     width: 100%;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     .circle {
+      min-width: 3.5em;
+      min-height: 3.5em;
       width: 3.5em;
       height: 3.5em;
       margin: 1.5em 1.5em;
