@@ -1,6 +1,37 @@
 <template>
   <el-collapse v-model="activeNames" @change="handleChange">
-    <el-collapse-item title="Base finish" name="1">
+    <el-collapse-item title="Base" name="1">
+      <div class="base-array">
+        <div class="base-container">
+          <img class="base-image" src="../assets/Base 1.png"/>
+        </div>
+        <div class="base-container">
+          <img class="base-image" src="../assets/Base 1.png"/>
+        </div>
+        <div class="base-container">
+          <img class="base-image" src="../assets/Base 1.png"/>
+        </div>
+        <div class="base-container">
+          <img class="base-image" src="../assets/Base 1.png"/>
+        </div>
+        <div class="base-container">
+          <img class="base-image" src="../assets/Base 1.png"/>
+        </div>
+        <div class="base-container">
+          <img class="base-image" src="../assets/Base 1.png"/>
+        </div>
+        <div class="base-container">
+          <img class="base-image" src="../assets/Base 2.png"/>
+        </div>
+        <div class="base-container">
+          <img class="base-image" src="../assets/Base 1.png"/>
+        </div>
+        <div class="base-container">
+          <img class="base-image" src="../assets/Base 1.png"/>
+        </div>
+      </div>
+    </el-collapse-item>
+    <el-collapse-item title="Base finish" name="2">
       <div class="circle-container">
         <div class="circle" style="background-color:#0D0D0D;"></div>
         <div class="circle" style="background-color:#00334D;"></div>
@@ -16,16 +47,16 @@
         <div class="circle" style="background-color:#CEDBBC;"></div>
       </div>
     </el-collapse-item>
-    <el-collapse-item title="Feedback" name="2">
+    <el-collapse-item title="Feedback" name="3">
       <div>Operation feedback: enable the users to clearly perceive their operations by style updates and interactive effects;</div>
       <div>Visual feedback: reflect current state by updating or rearranging elements of the page.</div>
     </el-collapse-item>
-    <el-collapse-item title="Efficiency" name="3">
+    <el-collapse-item title="Efficiency" name="4">
       <div>Simplify the process: keep operating process simple and intuitive;</div>
       <div>Definite and clear: enunciate your intentions clearly so that the users can quickly understand and make decisions;</div>
       <div>Easy to identify: the interface should be straightforward, which helps the users to identify and frees them from memorizing and recalling.</div>
     </el-collapse-item>
-    <el-collapse-item title="Controllability" name="4">
+    <el-collapse-item title="Controllability" name="5">
       <div>Decision making: giving advices about operations is acceptable, but do not make decisions for the users;</div>
       <div>Controlled consequences: users should be granted the freedom to operate, including canceling, aborting or terminating current operation.</div>
     </el-collapse-item>
@@ -62,6 +93,26 @@ export default {
       margin: 1.5em 1.5em;
       border-radius: 50%;
       border: 1px solid grey;
+    }
+  }
+  .base-array {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    .base-container {
+      min-width: 3.5em;
+      min-height: 3.5em;
+      width: 10em;
+      height: 8em;
+      margin: 1.5em 3em;
+      border-radius: 5%;
+      border: solid 2px grey;
+      .base-image {
+        width: 100%;
+        height: 100%;
+      }
     }
   }
 </style>
