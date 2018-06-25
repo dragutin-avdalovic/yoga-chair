@@ -42,18 +42,18 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
   .circle-container {
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
-  }
-  .circle {
-    width: 2.5em;
-    height: 2.5em;
-    margin: 1em 1em;
-    border-radius: 50%;
-    border: 1px solid grey;
+    .circle {
+      width: 3.5em;
+      height: 3.5em;
+      margin: 1.5em 1.5em;
+      border-radius: 50%;
+      border: 1px solid grey;
+    }
   }
 </style>
