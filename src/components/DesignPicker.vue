@@ -19,18 +19,6 @@
         <div class="base-container">
           <img class="base-image" src="../assets/Base 1.png"/>
         </div>
-        <div class="base-container">
-          <img class="base-image" src="../assets/Base 1.png"/>
-        </div>
-        <div class="base-container">
-          <img class="base-image" src="../assets/Base 2.png"/>
-        </div>
-        <div class="base-container">
-          <img class="base-image" src="../assets/Base 1.png"/>
-        </div>
-        <div class="base-container">
-          <img class="base-image" src="../assets/Base 1.png"/>
-        </div>
       </div>
     </el-collapse-item>
     <el-collapse-item title="Base finish" name="2">
@@ -132,19 +120,25 @@ export default {
   data () {
     return {
       activeName: '1',
-      price: 300
+      price: 300,
+      selectedChairDesign: {
+        base: '',
+        baseFinish: '',
+        board: '',
+        seating: '',
+        covering: '',
+        back: ''
+      }
     }
   },
   methods: {
     handleChange (val) {
-      console.log(val)
     },
     goToNext () {
       var activeNameString = parseInt(this.activeName) + 1
       if (activeNameString === 8) {
         activeNameString = 7
       }
-      console.log(activeNameString)
       this.activeName = String(activeNameString)
     },
     goToPrevious () {
@@ -152,9 +146,8 @@ export default {
       if (activeNameString === 0) {
         activeNameString = 1
       }
-      console.log(activeNameString)
       this.activeName = String(activeNameString)
-    }
+    },
   }
 }
 </script>
