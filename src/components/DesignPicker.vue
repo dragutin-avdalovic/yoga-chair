@@ -48,19 +48,68 @@
       </div>
     </el-collapse-item>
     <el-collapse-item title="Board" name="3">
+      <div class="square-array">
+        <div class="square-container">
+          <img class="square-image" src="../assets/mat1.png"/>
+        </div>
+        <div class="square-container">
+          <img class="square-image" src="../assets/mat2.png"/>
+        </div>
+        <div class="square-container">
+          <img class="square-image" src="../assets/mat3.png"/>
+        </div>
+        <div class="square-container">
+          <img class="square-image" src="../assets/mat4.png"/>
+        </div>
+      </div>
     </el-collapse-item>
     <el-collapse-item title="Seating" name="4">
-      <div>Simplify the process: keep operating process simple and intuitive;</div>
-      <div>Definite and clear: enunciate your intentions clearly so that the users can quickly understand and make decisions;</div>
-      <div>Easy to identify: the interface should be straightforward, which helps the users to identify and frees them from memorizing and recalling.</div>
+      <div class="square-array">
+        <div class="square-container">
+          <img class="square-image" src="../assets/mat1.png"/>
+        </div>
+        <div class="square-container">
+          <img class="square-image" src="../assets/mat2.png"/>
+        </div>
+        <div class="square-container">
+          <img class="square-image" src="../assets/mat3.png"/>
+        </div>
+        <div class="square-container">
+          <img class="square-image" src="../assets/mat4.png"/>
+        </div>
+      </div>
     </el-collapse-item>
     <el-collapse-item title="Covering" name="5">
-      <div>Decision making: giving advices about operations is acceptable, but do not make decisions for the users;</div>
-      <div>Controlled consequences: users should be granted the freedom to operate, including canceling, aborting or terminating current operation.</div>
+      <div class="square-array">
+        <div class="square-container">
+          <img class="square-image" src="../assets/mat5.png"/>
+        </div>
+        <div class="square-container">
+          <img class="square-image" src="../assets/mat6.png"/>
+        </div>
+        <div class="square-container">
+          <img class="square-image" src="../assets/mat7.png"/>
+        </div>
+        <div class="square-container">
+          <img class="square-image" src="../assets/mat8.png"/>
+        </div>
+      </div>
     </el-collapse-item>
     <el-collapse-item title="Back" name="6">
-      <div>Decision making: giving advices about operations is acceptable, but do not make decisions for the users;</div>
-      <div>Controlled consequences: users should be granted the freedom to operate, including canceling, aborting or terminating current operation.</div>
+      <div class="square-array">
+        <div class="square-container">
+          <img class="square-image" src="../assets/mat1.png"/>
+        </div>
+        <div class="square-container">
+          <img class="square-image" src="../assets/mat2.png"/>
+        </div>
+        <div class="square-container">
+          <img class="square-image" src="../assets/mat3.png"/>
+        </div>
+        <div class="square-container">
+          <img class="square-image" src="../assets/mat4.png"/>
+        </div>
+      </div>
     </el-collapse-item>
   </el-collapse>
 </template>
@@ -112,6 +161,26 @@ export default {
       border-radius: 5%;
       border: solid 2px grey;
       .base-image {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+  .square-array {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    .square-container {
+      min-width: 3.5em;
+      min-height: 3.5em;
+      width: 10em;
+      height: 8em;
+      margin: 1.5em 3em;
+      border-radius: 5%;
+      border: solid 2px grey;
+      .square-image {
         width: 100%;
         height: 100%;
       }
