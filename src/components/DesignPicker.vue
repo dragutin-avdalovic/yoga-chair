@@ -4,16 +4,16 @@
   <el-collapse v-model="activeName" @change="handleChange">
     <el-collapse-item title="Base" name="1">
       <div class="base-array">
-        <div class="base-container"   @click="selectBase($event)">
+        <div class="base-container"  @click="selectBase($event)">
           <img class="base-image" src="../assets/Base 2.png" base="2"/>
         </div>
-        <div class="base-container"   @click="selectBase($event)">
+        <div class="base-container"  @click="selectBase($event)">
           <img class="base-image" src="../assets/Base 2.png" base="2"/>
         </div>
-        <div class="base-container"   @click="selectBase($event)">
+        <div class="base-container"  @click="selectBase($event)">
           <img class="base-image" src="../assets/Base 1.png" base="1"/>
         </div>
-        <div class="base-container"   @click="selectBase($event)">
+        <div class="base-container"  @click="selectBase($event)">
           <img class="base-image" src="../assets/Base 1.png" base="1"/>
         </div>
       </div>
@@ -101,7 +101,7 @@
   </el-collapse>
   </el-col>
   <el-col>
-    <h3 class="pricing-count">Selling price of your current configuration: <br> {{price}} EUR </h3>
+    <h3 class="pricing-count">Selling price of your current configuration: <br> <span class="price">{{price}} EUR</span> </h3>
   </el-col>
   <el-col>
     <div class="btn-container">
@@ -162,6 +162,7 @@ export default {
     flex-wrap: wrap;
     justify-content: center;
     .circle {
+      cursor: pointer;
       min-width: 3.5em;
       min-height: 3.5em;
       width: 5em;
@@ -178,6 +179,7 @@ export default {
     flex-wrap: wrap;
     justify-content: center;
     .base-container {
+      cursor: pointer;
       min-width: 3.5em;
       min-height: 3.5em;
       width: 10em;
@@ -198,6 +200,7 @@ export default {
     flex-wrap: wrap;
     justify-content: center;
     .square-container {
+      cursor: pointer;
       min-width: 3.5em;
       min-height: 3.5em;
       width: 10em;
@@ -216,11 +219,17 @@ export default {
     font-weight: 500;
     color: grey;
     font-family: 'Roboto Slab', serif;
+    .price {
+      font-weight: 500;
+      color: #ff5c00;
+      font-size: 1.3em;
+    }
   }
   .btn-container {
     width: 100%;
     display: flex;
     flex-direction: row;
+    cursor: pointer;
     .btn-nav {
       width: 40%;
       margin: 1em 5%;
