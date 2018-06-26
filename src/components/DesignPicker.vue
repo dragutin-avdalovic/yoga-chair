@@ -4,20 +4,17 @@
   <el-collapse v-model="activeName" @change="handleChange">
     <el-collapse-item title="Base" name="1">
       <div class="base-array">
-        <div class="base-container">
-          <img class="base-image" src="../assets/Base 2.png"/>
+        <div class="base-container"   @click="selectBase($event)">
+          <img class="base-image" src="../assets/Base 2.png" base="2"/>
         </div>
-        <div class="base-container">
-          <img class="base-image" src="../assets/Base 2.png"/>
+        <div class="base-container"   @click="selectBase($event)">
+          <img class="base-image" src="../assets/Base 2.png" base="2"/>
         </div>
-        <div class="base-container">
-          <img class="base-image" src="../assets/Base 1.png"/>
+        <div class="base-container"   @click="selectBase($event)">
+          <img class="base-image" src="../assets/Base 1.png" base="1"/>
         </div>
-        <div class="base-container">
-          <img class="base-image" src="../assets/Base 1.png"/>
-        </div>
-        <div class="base-container">
-          <img class="base-image" src="../assets/Base 1.png"/>
+        <div class="base-container"   @click="selectBase($event)">
+          <img class="base-image" src="../assets/Base 1.png" base="1"/>
         </div>
       </div>
     </el-collapse-item>
@@ -148,6 +145,11 @@ export default {
       }
       this.activeName = String(activeNameString)
     },
+    selectBase (event) {
+      this.selectedChairDesign.base = event.target.getAttribute('base')
+      var parent = event.target.parentElement
+      parent.style.border = 'solid 2px red'
+    }
   }
 }
 </script>
@@ -162,11 +164,11 @@ export default {
     .circle {
       min-width: 3.5em;
       min-height: 3.5em;
-      width: 3.5em;
-      height: 3.5em;
+      width: 5em;
+      height: 5em;
       margin: 1.5em 1.5em;
       border-radius: 50%;
-      border: 1px solid grey;
+      border: 2px solid grey;
     }
   }
   .base-array {
