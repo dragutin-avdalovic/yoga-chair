@@ -51,18 +51,18 @@
       </div>
     </el-collapse-item>
     <el-collapse-item title="Seating" name="4">
-      <div class="square-array">
-        <div class="square-container">
-          <img class="square-image" src="../assets/mat1.png"/>
+      <div class="square-array" ref="seating">
+        <div class="square-container" @click="selectSeating($event)">
+          <img class="square-image" seating="mat1" src="../assets/mat1.png"/>
         </div>
-        <div class="square-container">
-          <img class="square-image" src="../assets/mat2.png"/>
+        <div class="square-container" @click="selectSeating($event)">
+          <img class="square-image" seating="mat2" src="../assets/mat2.png"/>
         </div>
-        <div class="square-container">
-          <img class="square-image" src="../assets/mat3.png"/>
+        <div class="square-container" @click="selectSeating($event)">
+          <img class="square-image" seating="mat3" src="../assets/mat3.png"/>
         </div>
-        <div class="square-container">
-          <img class="square-image" src="../assets/mat4.png"/>
+        <div class="square-container" @click="selectSeating($event)">
+          <img class="square-image" seating="mat4" src="../assets/mat4.png"/>
         </div>
       </div>
     </el-collapse-item>
@@ -151,6 +151,15 @@ export default {
         base.style.border = 'solid 2px grey'
       })
       this.selectedChairDesign.base = event.target.getAttribute('base')
+      var parent = event.target.parentElement
+      parent.style.border = 'solid 2px red'
+      console.log(this.selectedChairDesign)
+    },
+    selectSeating (event) {
+      _.forEach(this.$refs['seating'].children, (base) => {
+        base.style.border = 'solid 2px grey'
+      })
+      this.selectedChairDesign.seating = event.target.getAttribute('seating')
       var parent = event.target.parentElement
       parent.style.border = 'solid 2px red'
       console.log(this.selectedChairDesign)
