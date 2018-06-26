@@ -1,9 +1,9 @@
 <template>
   <div class="chair-design-picker">
   <el-col>
-  <el-collapse v-model="activeName" @change="handleChange">
+  <el-collapse v-model="activeName" @change="handleChange" >
     <el-collapse-item title="Base" name="1">
-      <div class="base-array">
+      <div class="base-array" ref="base">
         <div class="base-container"  @click="selectBase($event)">
           <img class="base-image" src="../assets/Base 2.png" base="2"/>
         </div>
@@ -113,6 +113,7 @@
 </template>
 
 <script>
+import _ from 'lodash'
 export default {
   data () {
     return {
@@ -146,9 +147,13 @@ export default {
       this.activeName = String(activeNameString)
     },
     selectBase (event) {
+      _.forEach(this.$refs['base'].children, (base) => {
+        base.style.border = 'solid 2px grey'
+      })
       this.selectedChairDesign.base = event.target.getAttribute('base')
       var parent = event.target.parentElement
       parent.style.border = 'solid 2px red'
+      console.log(this.selectedChairDesign)
     }
   }
 }
@@ -220,9 +225,10 @@ export default {
     color: grey;
     font-family: 'Roboto Slab', serif;
     .price {
-      font-weight: 500;
+      font-weight: 700;
       color: #ff5c00;
       font-size: 1.3em;
+      word-spacing: 0.5px;
     }
   }
   .btn-container {
