@@ -67,34 +67,34 @@
       </div>
     </el-collapse-item>
     <el-collapse-item title="Covering" name="5">
-      <div class="square-array">
-        <div class="square-container">
-          <img class="square-image" src="../assets/mat5.png"/>
+      <div class="square-array" ref="covering">
+        <div class="square-container" @click="selectCovering($event)">
+          <img class="square-image" covering="mat5" src="../assets/mat5.png"/>
         </div>
-        <div class="square-container">
-          <img class="square-image" src="../assets/mat6.png"/>
+        <div class="square-container" @click="selectCovering($event)">
+          <img class="square-image" covering="mat6" src="../assets/mat6.png"/>
         </div>
-        <div class="square-container">
-          <img class="square-image" src="../assets/mat7.png"/>
+        <div class="square-container" @click="selectCovering($event)">
+          <img class="square-image" covering="mat7" src="../assets/mat7.png"/>
         </div>
-        <div class="square-container">
-          <img class="square-image" src="../assets/mat8.png"/>
+        <div class="square-container" @click="selectCovering($event)">
+          <img class="square-image" covering="mat8" src="../assets/mat8.png"/>
         </div>
       </div>
     </el-collapse-item>
     <el-collapse-item title="Back" name="6">
-      <div class="square-array">
-        <div class="square-container">
-          <img class="square-image" src="../assets/mat1.png"/>
+      <div class="square-array" ref="back">
+        <div class="square-container"  @click="selectBack($event)">
+          <img class="square-image" back="mat1" src="../assets/mat1.png"/>
         </div>
-        <div class="square-container">
-          <img class="square-image" src="../assets/mat2.png"/>
+        <div class="square-container"  @click="selectBack($event)">
+          <img class="square-image" back="mat2" src="../assets/mat2.png"/>
         </div>
-        <div class="square-container">
-          <img class="square-image" src="../assets/mat3.png"/>
+        <div class="square-container"  @click="selectBack($event)">
+          <img class="square-image" back="mat3" src="../assets/mat3.png"/>
         </div>
-        <div class="square-container">
-          <img class="square-image" src="../assets/mat4.png"/>
+        <div class="square-container"  @click="selectBack($event)">
+          <img class="square-image" back="mat4" src="../assets/mat4.png"/>
         </div>
       </div>
     </el-collapse-item>
@@ -164,6 +164,24 @@ export default {
       parent.style.border = 'solid 2px red'
       console.log(this.selectedChairDesign)
     },
+    selectCovering (event) {
+      _.forEach(this.$refs['covering'].children, (base) => {
+        base.style.border = 'solid 2px grey'
+      })
+      this.selectedChairDesign.covering = event.target.getAttribute('covering')
+      var parent = event.target.parentElement
+      parent.style.border = 'solid 2px red'
+      console.log(this.selectedChairDesign)
+    },
+    selectBack (event) {
+      _.forEach(this.$refs['back'].children, (base) => {
+        base.style.border = 'solid 2px grey'
+      })
+      this.selectedChairDesign.back = event.target.getAttribute('back')
+      var parent = event.target.parentElement
+      parent.style.border = 'solid 2px red'
+      console.log(this.selectedChairDesign)
+    },
     selectBoard (event) {
       _.forEach(this.$refs['board'].children, (base) => {
         base.style.border = 'solid 2px grey'
@@ -187,100 +205,103 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .circle-container {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    .circle {
-      cursor: pointer;
-      min-width: 3.5em;
-      min-height: 3.5em;
-      width: 5em;
-      height: 5em;
-      margin: 1.5em 1.5em;
-      border-radius: 50%;
-      border: 2px solid grey;
-    }
-  }
-  .base-array {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    .base-container {
-      cursor: pointer;
-      min-width: 3.5em;
-      min-height: 3.5em;
-      width: 10em;
-      height: 8em;
-      margin: 1.5em 3em;
-      border-radius: 5%;
-      border: solid 2px grey;
-      .base-image {
-        width: 100%;
-        height: 100%;
-      }
-    }
-  }
-  .square-array {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    .square-container {
-      cursor: pointer;
-      min-width: 3.5em;
-      min-height: 3.5em;
-      width: 10em;
-      height: 8em;
-      margin: 1.5em 3em;
-      border-radius: 5%;
-      border: solid 2px grey;
-      .square-image {
-        width: 100%;
-        height: 100%;
-      }
-    }
-  }
-  h3 {
-    padding: 1em 0;
-    font-weight: 500;
-    color: grey;
-    font-family: 'Roboto Slab', serif;
-    .price {
-      font-weight: 700;
-      color: #ff5c00;
-      font-size: 1.3em;
-      word-spacing: 0.5px;
-    }
-  }
-  .btn-container {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    cursor: pointer;
-    .btn-nav {
-      width: 40%;
-      margin: 1em 5%;
-      padding: 1.5em 0;
-      text-align: center;
-      background-color: #414042;
-      border-radius: 2px;
-      font-family: 'Helvetica Neue';
-      color: white;
-      justify-content: center;
-      align-items: center;
+  .chair-design-picker {
+    overflow: auto;
+    .circle-container {
+      width: 100%;
       display: flex;
-      font-size: 1.2em;
-      &:hover {
-        background-color: rgba(#414042,0.8);
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      .circle {
+        cursor: pointer;
+        min-width: 3.5em;
+        min-height: 3.5em;
+        width: 5em;
+        height: 5em;
+        margin: 1.5em 1.5em;
+        border-radius: 50%;
+        border: 2px solid grey;
       }
-      &:active {
-        background-color: #464646
+    }
+    .base-array {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      .base-container {
+        cursor: pointer;
+        min-width: 3.5em;
+        min-height: 3.5em;
+        width: 10em;
+        height: 8em;
+        margin: 1.5em 3em;
+        border-radius: 5%;
+        border: solid 2px grey;
+        .base-image {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+    .square-array {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      .square-container {
+        cursor: pointer;
+        min-width: 3.5em;
+        min-height: 3.5em;
+        width: 10em;
+        height: 8em;
+        margin: 1.5em 3em;
+        border-radius: 5%;
+        border: solid 2px grey;
+        .square-image {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+    h3 {
+      padding: 1em 0;
+      font-weight: 500;
+      color: grey;
+      font-family: 'Roboto Slab', serif;
+      .price {
+        font-weight: 700;
+        color: #ff5c00;
+        font-size: 1.3em;
+        word-spacing: 0.5px;
+      }
+    }
+    .btn-container {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      cursor: pointer;
+      .btn-nav {
+        width: 40%;
+        margin: 1em 5%;
+        padding: 1.5em 0;
+        text-align: center;
+        background-color: #414042;
+        border-radius: 2px;
+        font-family: 'Helvetica Neue';
+        color: white;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        font-size: 1.2em;
+        &:hover {
+          background-color: rgba(#414042, 0.8);
+        }
+        &:active {
+          background-color: #464646
+        }
       }
     }
   }
