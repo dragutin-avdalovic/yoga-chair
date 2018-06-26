@@ -19,34 +19,34 @@
       </div>
     </el-collapse-item>
     <el-collapse-item title="Base finish" name="2">
-      <div class="circle-container">
-        <div class="circle" style="background-color:#0D0D0D;"></div>
-        <div class="circle" style="background-color:#00334D;"></div>
-        <div class="circle" style="background-color:#FFFFFF;"></div>
-        <div class="circle" style="background-color:#B7B7B7;"></div>
-        <div class="circle" style="background-color:#717184;"></div>
-        <div class="circle" style="background-color:#BCB5AF;"></div>
-        <div class="circle" style="background-color:#0068B4;"></div>
-        <div class="circle" style="background-color:#6D6456;"></div>
-        <div class="circle" style="background-color:#D0D1B0;"></div>
-        <div class="circle" style="background-color:#414042;"></div>
-        <div class="circle" style="background-color:#7A7A7A;"></div>
-        <div class="circle" style="background-color:#CEDBBC;"></div>
+      <div class="circle-container" ref="base-finish">
+        <div class="circle" @click="selectBaseFinish($event)" style="background-color:#0D0D0D;" baseFinish="#0D0D0D"></div>
+        <div class="circle" @click="selectBaseFinish($event)" style="background-color:#00334D;" baseFinish="#00334D"></div>
+        <div class="circle" @click="selectBaseFinish($event)" style="background-color:#FFFFFF;" baseFinish="#FFFFFF"></div>
+        <div class="circle" @click="selectBaseFinish($event)" style="background-color:#B7B7B7;" baseFinish="#B7B7B7"></div>
+        <div class="circle" @click="selectBaseFinish($event)" style="background-color:#717184;" baseFinish="#717184"></div>
+        <div class="circle" @click="selectBaseFinish($event)" style="background-color:#BCB5AF;" baseFinish="#BCB5AF"></div>
+        <div class="circle" @click="selectBaseFinish($event)" style="background-color:#0068B4;" baseFinish="#0068B4"></div>
+        <div class="circle" @click="selectBaseFinish($event)" style="background-color:#6D6456;" baseFinish="#6D6456"></div>
+        <div class="circle" @click="selectBaseFinish($event)" style="background-color:#D0D1B0;" baseFinish="#D0D1B0"></div>
+        <div class="circle" @click="selectBaseFinish($event)" style="background-color:#414042;" baseFinish="#414042"></div>
+        <div class="circle" @click="selectBaseFinish($event)" style="background-color:#7A7A7A;" baseFinish="#7A7A7A"></div>
+        <div class="circle" @click="selectBaseFinish($event)" style="background-color:#CEDBBC;" baseFinish="#CEDBBC"></div>
       </div>
     </el-collapse-item>
     <el-collapse-item title="Board" name="3">
-      <div class="square-array">
-        <div class="square-container">
-          <img class="square-image" src="../assets/mat1.png"/>
+      <div class="square-array" ref="board">
+        <div class="square-container" @click="selectBoard($event)">
+          <img class="square-image" board="mat1" src="../assets/mat1.png"/>
         </div>
-        <div class="square-container">
-          <img class="square-image" src="../assets/mat2.png"/>
+        <div class="square-container" @click="selectBoard($event)">
+          <img class="square-image" board="mat2" src="../assets/mat2.png"/>
         </div>
-        <div class="square-container">
-          <img class="square-image" src="../assets/mat3.png"/>
+        <div class="square-container" @click="selectBoard($event)">
+          <img class="square-image" board="mat3" src="../assets/mat3.png"/>
         </div>
-        <div class="square-container">
-          <img class="square-image" src="../assets/mat4.png"/>
+        <div class="square-container" @click="selectBoard($event)">
+          <img class="square-image" board="mat4" src="../assets/mat4.png"/>
         </div>
       </div>
     </el-collapse-item>
@@ -153,6 +153,24 @@ export default {
       this.selectedChairDesign.base = event.target.getAttribute('base')
       var parent = event.target.parentElement
       parent.style.border = 'solid 2px red'
+      console.log(this.selectedChairDesign)
+    },
+    selectBoard (event) {
+      _.forEach(this.$refs['board'].children, (base) => {
+        base.style.border = 'solid 2px grey'
+      })
+      this.selectedChairDesign.board = event.target.getAttribute('board')
+      var parent = event.target.parentElement
+      parent.style.border = 'solid 2px red'
+      console.log(this.selectedChairDesign)
+    },
+    selectBaseFinish (event) {
+      _.forEach(this.$refs['base-finish'].children, (base) => {
+        base.style.border = 'solid 2px grey'
+      })
+      this.selectedChairDesign.baseFinish = event.target.getAttribute('baseFinish')
+      var element = event.target
+      element.style.border = 'solid 2px red'
       console.log(this.selectedChairDesign)
     }
   }
