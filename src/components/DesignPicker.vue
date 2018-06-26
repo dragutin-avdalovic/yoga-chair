@@ -1,4 +1,6 @@
 <template>
+  <div class="chair-design-picker">
+  <el-col>
   <el-collapse v-model="activeNames" @change="handleChange">
     <el-collapse-item title="Base" name="1">
       <div class="base-array">
@@ -112,13 +114,25 @@
       </div>
     </el-collapse-item>
   </el-collapse>
+  </el-col>
+  <el-col>
+    <h3 class="pricing-count">Selling price of your current configuration: <br> {{price}} EUR </h3>
+  </el-col>
+  <el-col>
+    <div class="btn-container">
+      <div class="btn-nav">Previous</div>
+      <div class="btn-nav">Next</div>
+    </div>
+  </el-col>
+  </div>
 </template>
 
 <script>
 export default {
   data () {
     return {
-      activeNames: ['1']
+      activeNames: ['1'],
+      price: 300
     }
   },
   methods: {
@@ -183,6 +197,37 @@ export default {
       .square-image {
         width: 100%;
         height: 100%;
+      }
+    }
+  }
+  h3 {
+    padding: 1em 0;
+    font-weight: 500;
+    color: grey;
+    font-family: 'Roboto Slab', serif;
+  }
+  .btn-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    .btn-nav {
+      width: 40%;
+      margin: 1em 5%;
+      padding: 1.5em 0;
+      text-align: center;
+      background-color: #414042;
+      border-radius: 2px;
+      font-family: 'Helvetica Neue';
+      color: white;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      font-size: 1.2em;
+      &:hover {
+        background-color: rgba(#414042,0.8);
+      }
+      &:active {
+        background-color: #464646
       }
     }
   }
