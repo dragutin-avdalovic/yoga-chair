@@ -1,7 +1,7 @@
 <template>
   <div class="chair-design-picker">
   <el-col>
-  <el-collapse v-model="activeNames" @change="handleChange">
+  <el-collapse v-model="activeName" @change="handleChange">
     <el-collapse-item title="Base" name="1">
       <div class="base-array">
         <div class="base-container">
@@ -120,8 +120,8 @@
   </el-col>
   <el-col>
     <div class="btn-container">
-      <div class="btn-nav">Previous</div>
-      <div class="btn-nav">Next</div>
+      <div class="btn-nav" @click="goToPrevious">Previous</div>
+      <div class="btn-nav" @click="goToNext">Next</div>
     </div>
   </el-col>
   </div>
@@ -131,13 +131,29 @@
 export default {
   data () {
     return {
-      activeNames: ['1'],
+      activeName: '1',
       price: 300
     }
   },
   methods: {
     handleChange (val) {
       console.log(val)
+    },
+    goToNext () {
+      var activeNameString = parseInt(this.activeName) + 1
+      if (activeNameString === 8) {
+        activeNameString = 7
+      }
+      console.log(activeNameString)
+      this.activeName = String(activeNameString)
+    },
+    goToPrevious () {
+      var activeNameString = parseInt(this.activeName) - 1
+      if (activeNameString === 0) {
+        activeNameString = 1
+      }
+      console.log(activeNameString)
+      this.activeName = String(activeNameString)
     }
   }
 }
